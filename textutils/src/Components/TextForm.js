@@ -1,17 +1,23 @@
 import React, { useState } from "react";
 
 export default function TextForm(props) {
+
+  //upper case
   const changeUpperCase = () => {
     // console.log("clicked")
     let newText = text.toUpperCase();
     setText(newText);
+    props.showAlert('Converted to Upper Case', 'success')
   };
 
+  //lower case
   const changeLowerCase = () => {
     let newText = text.toLowerCase();
     setText(newText);
+    props.showAlert('Converted To Lower Case', 'success')
   };
 
+  //capitalize case
   const capitalize = () => {
     // const word = "sagar bhujel"
     const newText = text.split(" ");
@@ -25,8 +31,10 @@ export default function TextForm(props) {
     setText(newText.join(" "));
     // setText(newText)
     // console.log(newText)
+    props.showAlert('Converted to Capitalize Case','success')
   };
 
+  //sentence case
   const sentenceCase = () => {
     // const newText = text.toLowerCase()
     const newText = text
@@ -37,14 +45,26 @@ export default function TextForm(props) {
       );
 
     setText(newText.join(". "));
+    props.showAlert("Converted to Sentence Case", "success");
+
 
     //   console.log(newText)
   };
 
+  //delete or clear the text area
   const clearInput = () => {
     // const newText = text
-    setText(" ");
+    setText("");
+    props.showAlert("Text has been Cleared", "warning");
+
   };
+
+  //copy to clip board
+  const copyToClipboard = ()=>{
+    let newText = document.getElementById('myForm')
+    navigator.clipboard.writeText(newText.value)
+    props.showAlert("Copied to ClipBoard.", "success")
+  }
 
   const handelOnChange = (event) => {
     //  console.log("onchange" +text);
@@ -66,7 +86,7 @@ export default function TextForm(props) {
         <h1>{props.formHeading}</h1>
         <div className="mb-3">
           <textarea
-            className="form-control w-50 mx-auto "
+            className="form-control w-75 mx-auto "
             value={text}
             onChange={handelOnChange}
             placeholder="Enter text here "
@@ -97,9 +117,14 @@ export default function TextForm(props) {
             Capitalize Case
           </button>
 
+          <button className="btn btn-primary my-3 mx-1" onClick={copyToClipboard}>
+            Copy
+          </button>
+
           <button className="btn btn-primary my-3 mx-1" onClick={clearInput}>
             Clear
           </button>
+
         </div>
       </div>
       <div
