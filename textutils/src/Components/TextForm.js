@@ -135,7 +135,7 @@ export default function TextForm(props) {
       >
         <h2>Text Summary</h2>
         <p>
-          {text === "" ? "0" : text.split(" ").length} words and {text.length}{" "}
+          {text === "" ? "0" : text.split(" ").filter((t)=>t!=="").length} words and {text.replace(/\s/g, '').length}
           characters.
         </p>
         <h2>Preview</h2>
