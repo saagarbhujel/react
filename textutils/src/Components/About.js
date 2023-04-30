@@ -1,31 +1,42 @@
-import React, {useState} from "react";
+import React from "react";
+
+// import React, {useState} from "react";
 
 
-export default function About() {
-    const [myStyle, setMyStyle] = useState({
-        color:'black',
-        backgroundColor: 'white'
-    });
+export default function About(props) {
 
-  const [btnTxt, setBtnTxt] = useState("Enable Dark Mode");
+  let myStyle = {
+    color : props.mode === 'dark' ? 'white' : '#042743',
+    backgroundColor  : props.mode === 'dark' ? '#042743' : 'white',
+    border: '2px solid',
+    borderColor : props.mode === 'dark' ? 'white' : '#042743'
+  }
+ 
+ 
+  // const [myStyle] = useState({
+    //     color:'black',
+    //     backgroundColor: 'white'
+    // });
 
-    const toggleBtn = ()=>{
-        if(myStyle.color === 'black'){
-            setMyStyle({
-                color : 'white',
-                backgroundColor:'black'
-            })
-            setBtnTxt("Enable Light Mode")
-            // console.log("clicked")
-        }
-        else{
-            setMyStyle({
-                color:'black',
-                backgroundColor:'white'
-            })
-            setBtnTxt("Enable Dark Mode");
-        }
-    }
+  // const [btnTxt, setBtnTxt] = useState("Enable Dark Mode");
+
+    // const toggleBtn = ()=>{
+    //     if(myStyle.color === 'black'){
+    //         setMyStyle({
+    //             color : 'white',
+    //             backgroundColor:'black'
+    //         })
+    //         setBtnTxt("Enable Light Mode")
+    //         // console.log("clicked")
+    //     }
+    //     else{
+    //         setMyStyle({
+    //             color:'black',
+    //             backgroundColor:'white'
+    //         })
+    //         setBtnTxt("Enable Dark Mode");
+    //     }
+    // }
 
     // let myStyle = ({
     //     color:'white',
@@ -33,7 +44,9 @@ export default function About() {
     // })
   return (
     <div className="container">
-      <h1>About Us</h1>
+      {/* <h1 className= {`text-${props.mode === 'light' ? 'black' : 'white'} `}>About Us</h1> */}
+      <h1 style ={{ color : props.mode === 'dark' ? 'white' : '#042743'}} >About Us</h1>
+
       <div className="accordion accordion-flush" id="accordionFlushExample">
         <div className="accordion-item my-2">
           <h2 className="accordion-header">
@@ -118,9 +131,9 @@ export default function About() {
           </div>
         </div>
       </div>
-      <button type="button" onClick={toggleBtn} className="btn btn-primary my-3">
+      {/* <button type="button" onClick={toggleBtn} className="btn btn-primary my-3">
         {btnTxt}
-      </button>
+      </button> */}
     </div>
   );
 }

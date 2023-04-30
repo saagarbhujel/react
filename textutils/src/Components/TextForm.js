@@ -108,20 +108,20 @@ export default function TextForm(props) {
             Convert To Uppercase
           </button>
           <button
-            className="btn btn-primary my-3 mx-1"
+            className="btn btn-primary my-3 mx-1 my-1"
             onClick={changeLowerCase}
           >
             Convert To Lowercase
           </button>
-          <button className="btn btn-primary my-3 mx-1" onClick={capitalize}>
+          <button className="btn btn-primary my-3 mx-1 my-1" onClick={capitalize}>
             Capitalize Case
           </button>
 
-          <button className="btn btn-primary my-3 mx-1" onClick={copyToClipboard}>
+          <button className="btn btn-primary my-3 mx-1 my-1" onClick={copyToClipboard}>
             Copy
           </button>
 
-          <button className="btn btn-primary my-3 mx-1" onClick={clearInput}>
+          <button className="btn btn-primary my-3 mx-1 my-1" onClick={clearInput}>
             Clear
           </button>
 
