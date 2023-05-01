@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 
 // import React, {useState} from "react";
 
@@ -43,9 +43,10 @@ export default function About(props) {
     //     backgroundColor:'black'
     // })
   return (
-    <div className="container">
+    <div className="container" >
       {/* <h1 className= {`text-${props.mode === 'light' ? 'black' : 'white'} `}>About Us</h1> */}
-      <h1 style ={{ color : props.mode === 'dark' ? 'white' : '#042743'}} >About Us</h1>
+      <h1 className="my-4" style ={{ color : props.mode === 'dark' ? 'white' : '#042743'}} >About Us</h1>
+      <h3 className="my-2">{props.formHeading}</h3>
 
       <div className="accordion accordion-flush" id="accordionFlushExample">
         <div className="accordion-item my-2">

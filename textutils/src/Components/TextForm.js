@@ -63,6 +63,7 @@ export default function TextForm(props) {
   const copyToClipboard = ()=>{
     let newText = document.getElementById('myForm')
     navigator.clipboard.writeText(newText.value)
+    document.getSelection().removeAllRanges()
     props.showAlert("Copied to ClipBoard.", "success")
   }
 
@@ -98,30 +99,31 @@ export default function TextForm(props) {
               color: props.mode === "dark" ? "white" : "black",
             }}
           ></textarea>
-          <button className="btn btn-primary my-3 mx-1" onClick={sentenceCase}>
+          <button disabled={text.length===0} className="btn btn-primary my-3 mx-1" onClick={sentenceCase}>
             Sentence Case
           </button>
           <button
+            disabled={text.length===0}
             className="btn btn-primary my-3 mx-1"
             onClick={changeUpperCase}
           >
             Convert To Uppercase
           </button>
-          <button
+          <button disabled={text.length===0}
             className="btn btn-primary my-3 mx-1 my-1"
             onClick={changeLowerCase}
           >
             Convert To Lowercase
           </button>
-          <button className="btn btn-primary my-3 mx-1 my-1" onClick={capitalize}>
+          <button disabled={text.length===0} className="btn btn-primary my-3 mx-1 my-1" onClick={capitalize}>
             Capitalize Case
           </button>
 
-          <button className="btn btn-primary my-3 mx-1 my-1" onClick={copyToClipboard}>
+          <button disabled={text.length===0} className="btn btn-primary my-3 mx-1 my-1" onClick={copyToClipboard}>
             Copy
           </button>
 
-          <button className="btn btn-primary my-3 mx-1 my-1" onClick={clearInput}>
+          <button disabled={text.length===0} className="btn btn-primary my-3 mx-1 my-1" onClick={clearInput}>
             Clear
           </button>
 
@@ -142,7 +144,7 @@ export default function TextForm(props) {
         <p>
           {text.length > 0
             ? text
-            : "Enter something in the text box above to preview it here.."}
+            : "Nothing to preview.."}
         </p>
       </div>
     </>

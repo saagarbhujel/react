@@ -53,13 +53,13 @@ function App() {
         <Alert alert={alert} />
         <div className="container my-3 ">
           <Routes>
-            <Route exact path="/about" element={<About mode={mode} />}>
+            <Route exact path="/about" element={<About mode={mode} formHeading="Try Text Manipulation - Word Counter, Character Counter" />}>
               
             </Route>
 
             <Route exact path="/" element={ <TextForm
                 showAlert={showAlert}
-                formHeading="Enter the text to transform"
+                formHeading="Try Text Manipulation - Word Counter, Character Counter"
                 mode={mode}
               />}>
              
