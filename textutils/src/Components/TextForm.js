@@ -63,7 +63,7 @@ export default function TextForm(props) {
   const copyToClipboard = ()=>{
     let newText = document.getElementById('myForm')
     navigator.clipboard.writeText(newText.value)
-    document.getSelection().removeAllRanges()
+    // document.getSelection().removeAllRanges()
     props.showAlert("Copied to ClipBoard.", "success")
   }
 
